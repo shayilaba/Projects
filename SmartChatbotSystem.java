@@ -8,10 +8,10 @@ interface Chatbot {
     void addResponse(String keyword, String response);
 }
 
-// 2. Custom Exception (FIXED)
+// 2. Custom Exception
 class InvalidInputException extends Exception {
     public InvalidInputException(String msg) {
-        super(msg); // ✅ FIXED (important)
+        super(msg); //
     }
 }
 
@@ -47,7 +47,7 @@ class SmartChatbot implements Chatbot {
     @Override
     public String getResponse(String input) throws InvalidInputException {
 
-        // ❌ EMPTY INPUT HANDLING
+        //  EMPTY INPUT HANDLING
         if (input == null || input.trim().isEmpty()) {
             throw new InvalidInputException("Input cannot be empty!");
         }
@@ -149,7 +149,7 @@ public class SmartChatbotSystem {
                     break;
                 }
 
-                // ❗ ADMIN COMMAND (STRICT FIX)
+                // ❗ ADMIN COMMAND
                 if (input.toLowerCase().startsWith("add ")) {
 
                     String[] parts = input.split("\\s+", 3);
